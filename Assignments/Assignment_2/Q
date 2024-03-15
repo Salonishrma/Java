@@ -1,0 +1,1 @@
+Develop a Java application showcasing interface implementation and dependency injection. Define an interface "Shape" with methods for calculating area and perimeter, implement it in classes like "Circle" and "Rectangle," and demonstrate dependency injection to access their functionalities.
