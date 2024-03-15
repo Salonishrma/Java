@@ -1,0 +1,1 @@
+Implement a Java program that demonstrates single inheritance and method overriding. Create a base class "Vehicle" with attributes and methods, then derive a class "Car" from it and override certain methods.
