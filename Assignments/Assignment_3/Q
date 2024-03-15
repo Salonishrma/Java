@@ -1,0 +1,2 @@
+Design a Java program illustrating the concept of encapsulation. Create a class "BankAccount" with private attributes like balance and methods for deposit 
+and withdrawal, ensuring encapsulation principles are followed.
