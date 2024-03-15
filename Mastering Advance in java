@@ -1,0 +1,889 @@
+ Mastering Advanced java with Object-Oriented Programming 
+
+IDE- intelij and eclipse ide,netbeans ide, vs code,blueJ IDE 
+
+
+OOPS-
+Will help to reuse the code at a very large scale .
+Access modifier will help to where to access the things.
+Faster and easier to execute
+Top provide a clear structure for programs/blocks
+Oops helps to keep the python, java c# code dry don’t repeat yourself and makes the code easier to maintain , modify and debug
+Oops make it possible to create full reusable applications with less code and shorter development time
+IN OOPS Concept we have one more real-world example called “WORA” write once read anywhere.
+By applying these principles we will save more time on application developments.
+
+
+How to create class in java?
+Attribute and method are properties of objects
+For eg car (Attributes = engine, wheels etc) (Methods =drive, break)
+Class is blueprint or template. Object are instate of classes.
+Constructor name is same as same of class.
+
+Code-
+Hello.java
+
+public class Hello {
+    int x=5;
+    String name="saloni";
+    public static void main(String[] args) {
+        Hello h1=new Hello(); //creating object of class Hello
+        System.out.println(h1.x); //accesssing the object
+        System.out.println(h1.name);
+
+        Hello h2=new Hello();//creating one more object
+        System.out.println(h2.x); //accesssing the object
+        System.out.println(h2.name);
+    }
+}
+
+We can use multiple classes 
+Suppose above code is of Hello.java and we want to use it in the next file that is Hello_2.java so for that we don’t need to write everything again 
+
+Hello_2.java
+
+
+public class Hello_2{
+    public static void main(String[] args) {
+        Hello h1=new Hello(); //creating object of class Hello
+        System.out.println(h1.x); //accesssing the object
+        System.out.println(h1.name);
+    }
+}
+
+ It will give output as 5 and Saloni. So from here we get that we can access class in other classes.
+
+Modifying Attribute 
+
+public class Hello {
+    int x=5;
+    String name="saloni";
+    public static void main(String[] args) {
+        Hello h1=new Hello(); 
+        System.out.println(h1.x); 
+        System.out.println(h1.name);
+
+        Hello h2=new Hello();
+        System.out.println(h2.x); 
+        System.out.println(h2.name);
+        h2.name="Radhe RAdhe"; //here we assign new value
+        System.out.println(h2.name); // output here will show new
+    }
+}
+
+Attribute name value is changed now and it is  “Radhe Radhe “ now
+ 
+Concatenation
+
+public class Hello {
+    int x=5;
+    String fname="saloni";
+    String lname ="sharma";
+    public static void main(String[] args) {
+        Hello myobj=new Hello();
+        System.out.println("NAME" + " : "+myobj.fname +" "+myobj.lname); 
+    }
+}
+
+
+Method
+public class Hello {
+    static void myMethod(){ //creating method
+        System.out.println("hey my world");
+    }
+    public static void main(String[] args) {
+        myMethod(); //calling my method
+    }
+}
+
+Method with parameters
+In function when we add variable inside the method, those are known as parameter and when we pass it known as passing data arguments
+public class Hello {
+    static void myMethod(int age,String name){ //parameters
+        System.out.println(age);
+        System.out.println(name);
+    }
+    public static void main(String[] args) {
+        myMethod(20,"Alice"); //passing data arguments
+        myMethod(22,"BOB"); 
+    }
+}
+
+Method with return value
+public class Hello {
+    static int add(int a,int b){ 
+        return a+b;
+    }
+    public static void main(String[] args) {
+       int sum = add(5,6);
+       System.out.println("sum is equal to = "+sum);
+    }
+}
+
+Static Method
+public class Hello {
+    //static method to multiplication
+    public static int multiply(int a,int b){ 
+        return a * b;
+    }
+    public static void main(String[] args) {
+    //calling a static method directly we can access using class name
+       int mult = Hello.multiply(5,6);
+       System.out.println("multiply is equal to = "+mult);
+    }
+}
+
+
+
+Public Method
+
+public class Rectangle{
+    public int area(int length,int breadth){
+        return length * breadth;
+    }
+     public int perimeter(int length,int breadth){
+        return 2*(length + breadth);
+    }
+    public static void main(String[] args) {
+      Rectangle ob =new Rectangle();
+      int result =ob.area(2,3);
+      int perimet =ob.area(5,3);
+      System.out.println("area is : " +result);
+      System.out.println("perimter is : " +perimet);
+    }
+}
+
+Multiple classes and Method(how to access multiple classes)
+Hello.java
+public class Hello {
+    public void fun1(){ 
+      System.out.println("HAr HAr mahadev");  
+    }
+    public void fun2(int var){ 
+      System.out.println("value is given : "+var);  
+    }
+}
+
+Rectangle.java
+public class Rectangle{
+    public static void main(String[] args) {
+        Hello h1=new Hello();
+        h1.fun1();
+        h1.fun2(9);
+    }  
+}
+
+
+Constructor
+Constructor is called when object is created.It is used to initialise object state.
+Default Constructor
+
+public class Hello {
+   String name;
+   int age;
+   //default constuctor
+   public Hello(){
+    name="saloni";
+    age=10;
+   }
+
+   void show(){
+    System.out.println("Name is equal to = "+name);
+    System.out.println("Age is equal to = "+age);
+   }
+   public static void main (String args[]){
+    Hello h1=new Hello();
+    h1.show();
+   }
+}
+
+Parameterised Constructor
+public class Hello {
+   String name;
+   int age;
+   //parameterised constuctor
+   public Hello(String n,int a){
+    name=n;
+    age=a;
+   }
+
+   void show(){
+    System.out.println("Name is equal to = "+name);
+    System.out.println("Age is equal to = "+age);
+   }
+   public static void main (String args[]){
+    Hello h1=new Hello("Saloni",20);
+    h1.show();
+   }
+}
+
+Inheritance
+Single Inheritance
+//parent class or superclass
+class Animal {
+   void eat(){
+    System.out.println("this animal eat food");
+   }
+   void sleep(){
+    System.out.println("this animal sleep");
+   }
+}
+class Dog extends Animal{
+    void bark(){
+       System.out.println("dog will bark" );
+    }
+}
+public class Hello{
+   public static void main (String args[]){
+   Animal myobj=new Animal();
+   myobj.eat();
+   Dog myobj1=new Dog();
+   myobj1.bark(); //child class method
+   myobj1.sleep(); //parent class method
+   }
+}
+
+Multiple Inheritance
+Java do not support multiple inheritance leads to ambiguity and diamond problem. But by using interface we can support it. 
+Interface is a reserved keyword.
+/parent class or superclass
+interface Walkable{
+    void walk();
+}
+interface Swimable{
+    void swim();
+}
+class Ambhibian implements Walkable,Swimable{
+   public void walk(){
+       System.out.println("Ambhibian is walking" );
+    }
+     public void swim(){
+       System.out.println("Ambhibian is swiming" );
+    }
+}
+public class Hello{
+   public static void main (String args[]){
+   Ambhibian obj=new Ambhibian();
+   obj.swim();
+   obj.walk();
+   }
+}
+
+Multilevel Inheritance-
+Where one class extend other class and then that other class extends one more class.
+interface Walkable {
+    void walk();
+}
+
+interface Swimable {
+    void swim();
+}
+
+class Animal {
+    void eat() {
+        System.out.println("Happy Eating....");
+    }
+}
+
+class Mammal extends Animal {
+    void birth() {
+        System.out.println("Mammal give birth....");
+    }
+}
+
+class Dog extends Mammal implements Walkable {
+    void bark() {
+        System.out.println("Happy Barking....");
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("Dog is walking...");
+    }
+}
+
+public class Hello {
+    public static void main(String args[]) {
+        Dog obj = new Dog();
+        obj.bark();
+        obj.eat();
+        obj.birth();
+        obj.walk();
+    }
+}
+
+
+Hierarchical inheritance-
+Multiple classes extended from single super classes
+// shape is super class
+class Shape{
+    void draw(){
+        System.out.println("Drawing a shape");
+    }
+}
+//child class of shape
+class Circle extends Shape{
+    void drawCircle(){
+        System.out.println("Drawing a circle");
+    }
+}
+//child class of shape
+class squre extends Shape{
+    void drawSqure(){
+        System.out.println("Drawing a squre");
+    }
+}
+public class Hello {
+    public static void main(String args[]) {
+        squre obj = new squre();
+        obj.drawSqure();//child class owm method
+        obj.draw();// inherited from parent
+    }
+}
+
+Hybrid inheritance-
+Combination of 2 or more type of inheritance method
+interface Flyer{
+    void fly();
+}
+class Bird{
+    void chirp(){
+    System.out.println("Bird chirps");
+    }
+}
+class sparrow extends Bird implements Flyer{
+   @Override
+   public void fly(){
+     System.out.println("sparrow flys");
+   }
+}
+public class Hello {
+    public static void main(String args[]) {
+        //creating a local instant
+        sparrow obj = new sparrow();
+        obj.fly();//interface and child class method
+        obj.chirp();// inherited from parent
+    }
+}
+
+
+
+POLYMORPHISM-
+Allow object of different classes to be treated as an object of a common type.this can be achieve by using method overloading and overloading. Static and dynamic | or run time or compile time
+
+Compile time/static binding/method overloading-
+Same name of method but different parameters
+
+public class MethodOverloading{
+
+    //method with 2 paramenter
+    static int add(int a,int b){
+        return a+b;
+    }
+    //method with 3 parameters
+    static int add(int a,int b,int c){
+        return a+b+c;
+    }
+    //method with 2 double data type parameters
+    static double add(double a, double b){
+        return a+b;
+    }
+     static String add(String a, String b){
+        return a+b;
+    }
+    public static void main(String args[]){
+        int sum= add(5,4);
+        int sum2=add(5,4,2);
+        double sum3=add(5.5,2.1);
+        System.out.println("sum is " +sum);
+        System.out.println("sum2 is " +sum2);
+        System.out.println("sum3 is " +sum3);
+    }
+}
+
+Run Time/Dynamic Binding/Method Overriding-
+Same name of function and same parameter but only difference is in class one is parent class and one is child class.Allow us to use superclass reference.subclass will provide special implementation.
+
+
+class Lion{
+    void makeSound(){
+        System.out.println("some sound");
+    }
+}
+class Tiger extends Lion{
+    @Override
+    void makeSound(){
+        System.out.println("Roar.....");
+    }
+}
+class Horse extends Lion{
+    @Override
+    void makeSound(){
+        System.out.println("Hurr....");
+    }
+}
+public class Hello {
+    public static void main(String args[]) {
+        Lion obj=new Tiger();
+        obj.makeSound();
+
+        Lion obj1=new Horse();
+        obj1.makeSound();
+    }
+}
+
+
+Polymorphism with Interfaces-
+
+
+interface Sports{
+    void play();
+}
+class Cricket implements Sports{
+   @Override
+    public void play(){
+        System.out.println("Playing Cricket....");
+    }
+
+}
+class Football implements Sports{
+    @Override
+    public void play(){
+        System.out.println("Playing Footbal....");
+        //instance creation 
+    }
+
+}
+
+public class Hello {
+    public static void main(String args[]) {
+        Cricket ob=new Cricket();
+        ob.play();
+        Football ob1=new Football();
+        ob1.play();
+    }
+}
+
+
+   Access Modifiers
+.public
+1) the objects of a class that are declared public are easily  accessible from any part of program.
+2)The code is accessible for all of the classes.
+
+.private
+1)The objects of a class only accessible in the same class
+2)Declared private access modifier is the most secure access modifier. Data objects of a class are declared as private.
+
+.Protected
+1)Class that are declared protected are only accessible with in the same class or in a class that is inherited from parent/base class.
+2)Data objects of a class are declared protected by adding protected keyword before the data member of that class.
+
+PUBLIC
+Hello.java
+public class Hello {
+    public int publicVariable;
+
+    public void publicMethod(){
+        System.out.println("This is a public method");
+    }
+}
+
+Rectangle.java
+public class Rectangle{
+    //to accessing public method and attributes 
+    public static void main(String[] args) {
+        //creating an instance 
+        Hello h1=new Hello();
+        h1.publicMethod();   
+    }  
+}
+
+
+PRIVATE
+
+public class Hello {
+    public int publicVariable;
+    private int privatevariable; //private variable
+    public void  publicMethod(){
+        System.out.println("This is a public method");
+    }
+    //private method 
+    private void privateMethod(){
+        System.out.println("This is a private method");
+    }
+     public static void main(String[] args) {
+        //object creatation
+        Hello obj=new Hello();
+        obj.privateMethod();//private method is accesible inside a class only
+     }
+}
+
+But in other class it is not accessible 
+
+PROTECTED-
+Allow access in same package and by sub classes
+Protected keyword is used 
+
+Hello.java
+
+public class Hello {
+    public int publicVariable;
+    private int privatevariable; //private variable
+    protected int protectedVariable;//protected variable
+    public void  publicMethod(){
+        System.out.println("This is a public method");
+    }
+    //private method 
+    private void privateMethod(){
+        System.out.println("This is a private method");
+    }
+     //protected method 
+    protected void protectedMethod(){
+        System.out.println("This is a protected method");
+    }
+     public static void main(String[] args) {
+        //object creatation
+        Hello obj=new Hello();
+        obj.privateMethod();//private method is accesible inside a class only
+     }
+}
+
+
+Rectangle.java
+public class Rectangle extends Hello{
+    //to accessing public method and attributes 
+    public static void main(String[] args) {
+        //creating an instance 
+        Hello h1=new Hello();
+        h1.publicMethod();
+        Rectangle r1=new Rectangle();
+        r1.protectedMethod();//derived access 
+    }  
+}
+
+DEFAULT
+If no access modifier is specified it is considered private package.
+accesible only inside the package ,inside the class only
+Do not specify any modifier 
+
+Hello.java
+
+public class Hello {
+    public int publicVariable;
+    private int privatevariable; //private variable
+    protected int protectedVariable;//protected variable
+    int packageprivateVariable;
+    public void  publicMethod(){
+        System.out.println("This is a public method");
+    }
+    //private method 
+    private void privateMethod(){
+        System.out.println("This is a private method");
+    }
+     //protected method 
+    protected void protectedMethod(){
+        System.out.println("This is a protected method");
+    }
+    //default-pacakge-private method
+    void packageprivateMethod(){
+         System.out.println("This is a private pacakge default method");
+    }
+     public static void main(String[] args) {
+        //object creatation
+        Hello obj=new Hello();
+        obj.privateMethod();//private method is accesible inside a class only
+     }
+}
+
+
+Rectangle.java
+public class Rectangle extends Hello{
+    //to accessing public method and attributes 
+    public static void main(String[] args) {
+        //creating an instance 
+        Hello h1=new Hello()
+        h1.protectedMethod(); //self class accessible protected method
+        h1.packageprivateMethod();
+
+    }  
+}
+
+ENCAPSULATION
+
+It is one of the four fundamental OOP concepts.It refer to the building of data and methods that operate on data, restricting direct access to some of an objects components.
+- protect internal state of an object
+- promote modular code
+- enhance security and data integrity
+
+BENEFITS -
+1) Data hiding- shielding internal detail , prevent unindeneted interferernce
+2) Modularity - help in create modular and organized code
+3)Security - safeguarding sensitive information and prevent unauthorized access.
+4) Flexibility - easy to change implementation detail without affect external code
+5) maintance - simplify maintenance and debugging by localising changes.
+
+Encapsulation best practices :
+Access Modifier - appropriate proper access of public, private and protected.
+Immutable classes - consider making classes immutable for enhanced safety 
+Consistent Naming - follow naming convention for method and attributes.
+Documentation - clearly document purpose and used of exposed method
+Keep it simple - strive for minimal exposure, only provide what’s necessarry.
+
+Encapsulation
+
+Class{
+  Data Members
+    +
+  Method(behaviour)
+  }
+
+Code:
+public class Hello {
+    // private attributes
+    private String name;
+    private int age;
+
+    // constructor
+    public Hello(String name, int age) {
+        this.name = name;
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid Age");
+        }
+    }
+
+    // getter method for name attribute
+    public String getName() {
+        return name;
+    }
+
+    // setter method for name attribute
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // getter method for age attribute
+    public int getAge() {
+        return age;
+    }
+
+    // setter method for age attribute
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        } else {
+            System.out.println("Invalid Age");
+        }
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+
+    public static void main(String[] args) {
+        Hello obj = new Hello("John Doe", 20);
+        obj.displayInfo();
+        obj.setName("MAry Ahuja");
+        obj.setAge(10);
+        obj.displayInfo();
+    }
+}
+
+ABSTRACTION
+Hiding of data 
+Key principal of oops
+Used in java c# 
+It involve simplify complex systems by ignoring irrelevant details
+In java it is achieve by abstract class and interfaces 
+Class that can not be instantiate by object
+Declared using abstract
+By creating abstract class and methods
+//abstract class
+abstract class Shape {
+    // abstract method (no implementation)
+    public abstract void draw();
+
+    // concrete method (having actual implementation)
+    public void displayArea() {
+        System.out.println("Area: " + calculateArea());
+    }
+
+    // abstract method
+    protected abstract double calculateArea();
+}
+
+//concrete subclass
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    @Override
+    protected double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+//subclass implementation
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+
+    @Override
+    protected double calculateArea() {
+        return length * width;
+    }
+}
+
+public class Hello {
+
+    public static void main(String[] args) {
+        //creating an instance or object
+        Circle circle = new Circle(2);
+        Rectangle rectangle = new Rectangle(4, 6);
+
+        //using abstract class reference
+        Shape shape = circle;
+        Shape shape1 = rectangle;
+
+        //calling an abstract method
+        shape.draw();
+        shape.displayArea();
+        shape1.draw();
+        shape1.displayArea();
+    }
+}
+
+
+INTERFACES
+
+IN JAVA  interface is core concept of oops allow u to define contract for set of related classes without specifying implementation details 
+An interface declare a collection of abstract method without a body
+It include constant keywords also 
+Using interface keyword we can  achieve it 
+interface Shape2{
+    double  area();
+    void display();
+}
+//implementation the shape2 interface in this class 
+class Circle2 implements  Shape2{
+    double radius;
+    // constructor creation
+    public Circle2(double radius){
+        this.radius=radius;
+    }
+    @Override
+    public double area(){
+          return Math.PI * radius * radius;
+    }
+    @Override
+     public void display(){
+            System.out.println("this is circle");
+    }
+}
+public class Interface_program{
+   
+    public static void main(String[] args){
+    Circle2 circle=new Circle2(5);
+    System.out.println("Area of ctrclee=  " + circle.area());
+    circle.display();
+    }
+}
+
+ Dependency Injection-interface
+It is a design pattern which a class receive its dependency sources from external sources rather than creating them itself. Help to make classes modular, flexible, easy to test 
+Various way to create them - constructor injection is more popular way
+//service interface
+interface MessageService{
+    String getMessage();
+}
+//implementation of Message Service
+class EmailService implements MessageService{
+    @Override
+    public String getMessage(){
+        return "Email Message";
+    }
+}
+//class that depends of MessageService through constructor injection
+class MessageProcessor{
+    private final MessageService messageService;
+    //constructor injection
+    public MessageProcessor(MessageService messageService){
+        this.messageService=messageService;
+    }
+    public void processMessage(){
+        String message=messageService.getMessage();
+        System.out.println("processing message: "+message);
+    }
+}
+public class Dependency_program{
+   public static void main(String args[]){
+    //create an instance of a messsage service dependancy
+    MessageService  emailService =new EmailService();
+
+    //injecting dependency into MessageProcessor
+    MessageProcessor messageProcessor=new MessageProcessor(emailService);
+    //performing message action or processing
+    messageProcessor.processMessage();
+}
+}
+
+ENUMS
+Enums Enumeration is a  special datatype that represent fix set of constraints. Often used to define name value that represents special name  category or type.
+Using keyword ENUM
+
+
+
+￼
+
+
+//ENUM creation
+enum Level{
+    LOW,
+    MEDIUM,
+    HIGH
+}
+public class Enum_program{
+    public static void main(String[]args){
+        Level myVar = Level.MEDIUM;
+        System.out.println(myVar);
+    }
+}
+
+Enums inside a class
+//ENUM creation
+public class Enum_program{
+enum Level{
+    LOW,
+    MEDIUM,
+    HIGH
+}
+    public static void main(String[]args){
+        Level myVar = Level.MEDIUM;
+        Level myVar1=Level.HIGH;
+        System.out.println(myVar1);
+    }
+}
+
+JAVA PACKAGE AND API
+
+Make more managale
