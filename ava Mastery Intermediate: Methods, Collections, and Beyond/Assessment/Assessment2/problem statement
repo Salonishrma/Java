@@ -1,0 +1,7 @@
+Using HashMap Data structure to create a simple program that store and retrieve student names and their corresponding scores.
+
+Support:use reference libraries for the following
+
+Import java.util.Hashmap;
+Import java.util.Map;
+Import java.util.Scanner;
