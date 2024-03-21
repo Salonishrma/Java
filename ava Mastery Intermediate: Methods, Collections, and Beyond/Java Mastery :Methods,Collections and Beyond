@@ -1,0 +1,1688 @@
+                              Java Mastery :Methods,Collections and Beyond
+
+JAVA METHOD
+Method is a block of code it runs when it is called
+Every method open and close with ()
+Method first letter should be lower case 
+Class first letter should be upper case
+We can call same method multiple times in a program
+Using a method vast implementation happen
+public class Method_program {
+    //Method -example()
+    //methods - functions()
+
+    static void greetings(){
+        System.out.println("Welcome to java development");
+    }
+    static void wish(){
+        System.out.println("Wishing you a happy course");
+    }
+    public static void main(String[] args){
+        greetings();
+        greetings();
+        wish();
+    }
+}
+
+ METHOD WITH PARAMETERS
+public class Method_program {
+    //Method -example()
+    //methods - functions()
+
+    static void greetings(String fname){
+        System.out.println("Welcome to java development");
+        System.out.println("Hello "+fname);
+    }
+
+    public static void main(String[] args){
+        greetings("Saloni");
+        greetings("Meryy");
+    }
+}
+
+METHOD WITH MULTIPLE PARAMETERS
+public class Method_program {
+
+    static void greetings(String firstname,int age){
+        System.out.println("Welcome to java development");
+        System.out.println("Hello "+firstname + " Your age is "+age);
+    }
+    public static void main(String[] args){
+        greetings("Saloni",9);
+        greetings("Meryy",8);
+    }
+}
+
+APPLYING RETURN KEYWORD
+It help to return a value from the method 
+It throw out a result from method
+public class Method_program {
+
+    static String myName(String fname,String lname){
+        //using a return keyword
+        return fname+ lname;
+    }
+    public static void main(String[] args){
+        String c=myName("gita ","sita");
+      System.out.println(c);
+    }
+}
+
+USING A METHOD ON DECISIONS 
+public class Method_decision {
+    static void checkAge(int age) {
+        // if else statement
+        // if age is less than 18 = access denied
+        if(age < 18){
+            System.out.println("You are not eligible");
+        }
+        else{
+            System.out.println("You are eligible");
+        }
+    }
+        public static  void main(String[] args){
+           checkAge(19);
+        }
+    }
+
+METHOD OVERLOADING
+Same name of method with different parameters 
+public class Method_overloading {
+    //method overoading
+    static int addMethod(int x,int y){
+        return x+y;
+    }
+    static double addMethod(double x,double y){
+        return x+y;
+    }
+    public static  void main(String[] args) {
+      int  total1=addMethod(2,3);
+      double total2=addMethod(2.0,3.2);
+        System.out.println("my total1 is " +total1);
+        System.out.println("my total2 is " +total2);
+    }
+}
+
+VARIABLE SCOPE
+Will it be accessible or not
+Will it be useful or not
+public class Variable_Scope {
+    public static  void main(String[] args) {
+        //declaration or creation of a variable
+        int x=20;
+        //aceessing this variable
+        System.out.println("Variable is accessible " + x);
+    }
+    //we cannot acesss x here 
+}
+
+METHOD RECURSION
+A function or method calling itself again and again 
+Break down in small chunk and convert complex things into easy
+public class Recursion {
+    public static int sum(int k){
+        if(k>0){
+            return k+ sum(k-1);
+        }
+        else{
+            return 0;
+        }
+    }
+    public static  void main(String[] args) {
+        int result=sum(10);
+        System.out.println("my result is " +result);
+    }
+}
+
+
+ASSESSMENT TEST 1
+Write a java program to create a 10 digit random number on every program execution new number to generate automatically
+
+Import java.util.Random;
+import java.util.Random;
+public class Assessment_1 {
+    public static void main(String[] args){
+        long random10DigitNumber=genertaeTenDigiNumber();
+        System.out.println("10 digit random number is  "+ random10DigitNumber);
+    }
+    public static long genertaeTenDigiNumber(){
+        Random random=new Random();
+        long min=1000000000L;
+        long max=9999999999L;
+        long random10DigitNumber=min+((long)(random.nextDouble()*(max-min+1)));
+        return random10DigitNumber;
+    }
+}
+
+
+JAVA COLLECTIONS - ArrayList
+Create ArrayList
+Getting ab items
+Modifying ArrayList
+Sorting Techniques
+And many more……
+By taking real world examples here 
+import java.util.ArrayList;
+
+Creating ArrayList
+Built in array is present so why we use ArrayList
+Size of array cannot be modified we have to create new array while we have to implement it in real world
+                                         Whereas 
+We can increase and decrease size of arrayList according to our need
+
+Add Items in ArrayList
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+
+        System.out.println(fruits);
+    }
+}
+
+Access an item in ArrayList
+
+Based on index =if want to access single element
+get() is used
+Index start from 0;
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+       //based on index we get
+        //get()
+        System.out.println(fruits.get(2));
+    }
+}
+
+Change an item in ArrayList
+
+Using set method we can do that 
+Using an index position we can add at correct position
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+       //change items inside arraylist using set() method
+        fruits.set(3,"Strawberry");
+        System.out.println(fruits);
+    }
+}
+
+
+Remove or clear an items in ArrayList
+Using remove() method 
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        // to remove item we can use remove()
+        fruits.remove(0);
+        System.out.println(fruits);
+    }
+}
+
+Using clear() method 
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        // to clear all item we can use clear()
+        fruits.clear();
+        System.out.println(fruits);
+    }
+}
+
+Finding ArrayList Size
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+
+        System.out.println(fruits.size());
+    }
+}
+
+Loop Through an ArrayList
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        fruits.add("Sapota");
+
+        //loop through an arrayList
+        for(int i=0;i<fruits.size();i++){
+            System.out.println(fruits.get(i));
+        }
+
+    }
+}
+
+
+For each
+import java.util.ArrayList; //import the arraylist library
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        fruits.add("Sapota");
+
+        //loop through an arrayList
+        for(String i:fruits){
+            System.out.println(i);
+        }
+
+    }
+}
+
+Sorting
+import java.util.ArrayList; //import the arraylist library
+import java.util.Collections;
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        fruits.add("Sapota");
+        //collection of items  for applying for sort()
+        Collections.sort(fruits);
+        for(String i:fruits){
+            System.out.println(i);
+        }
+
+    }
+}
+
+
+For int
+import java.util.ArrayList; //import the arraylist library
+import java.util.Collections;
+public class ArrayList_program{
+    public static  void main(String[] args) {
+        //ArrayList declaration
+        ArrayList<String>fruits = new ArrayList<String>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+        fruits.add("Kiwi");
+        fruits.add("Sapota");
+        //collection of items  for applying for sort()
+        Collections.sort(fruits);
+        for(String i:fruits){
+            System.out.println(i);
+        }
+        ArrayList<Integer>number = new ArrayList<Integer>();
+        number.add(30);
+        number.add(90);
+        number.add(130);
+        number.add(20);
+        Collections.sort(number);
+        for(int i:number){
+            System.out.println(i);
+        }
+    }
+}
+
+
+ JAVA LINKEDLIST 
+ArrayList vs LinkedList
+Create LinkedList
+Add/Remove item
+Getting Items
+
+ArrayList vs. LinkedList 
+Linked list class is. a collection of many objects of the same type , just like the ArrayList.
+The LikedList class has all of the same methods as the ArrayList class, they both implement the list interface. Eg.add items, change items, remove items and clear the list in the same process.
+
+How arrayList work
+The ArrayList class has a regular array inside to add an elements ,data items are placed into the array.
+If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.
+
+How LinkedList work
+The LinkedList store its item in containers. The list has a link to the first container and each container has a link to the next container in the list.
+To add an element to the list, the element is placed into a new container and that container  is linked to one of the other container in the list.
+
+When to use
+When to use on real time scenarios, an ArrayList is for storing and accessing data, and linkedList to manipulate data.
+
+Creating LinkedList
+
+import java.util.LinkedList; //package importing
+
+import java.util.LinkedList; //package importing
+public class LinkedList_program {
+    public static  void main(String[] args) {
+        LinkedList<String>Country=new LinkedList<String>();
+        Country.add("India");
+        Country.add("Bhutan");
+        Country.add("Nepal");
+        Country.add("USA");
+        Country.add("UK");
+        Country.add("Australia");
+        System.out.println(Country);
+    }
+}
+
+ LinkedList Method(addFirst(),addLast() )
+import java.util.LinkedList; //package importing
+public class LinkedList_program {
+    public static  void main(String[] args) {
+        LinkedList<String>Country=new LinkedList<String>();
+        Country.add("India");
+        Country.add("Bhutan");
+        Country.add("Nepal");
+        Country.add("USA");
+        Country.add("UK");
+        Country.add("Australia");
+        //adding an element at first
+        Country.addFirst("germany");
+        //adding an element at last
+        Country.addLast("Italy");
+        System.out.println(Country);
+    }
+}
+
+ LinkedList Method(removeFirst(),removeLast() )
+import java.util.LinkedList; //package importing
+public class LinkedList_program {
+    public static  void main(String[] args) {
+        LinkedList<String>Country=new LinkedList<String>();
+        Country.add("India");
+        Country.add("Bhutan");
+        Country.add("Nepal");
+        Country.add("USA");
+        Country.add("UK");
+        Country.add("Australia");
+        //remove an element at first
+        Country.removeFirst();
+        //remove an element at last
+        Country.removeLast();
+        System.out.println(Country);
+    }
+}
+
+ LinkedList Method(getFirst(),getLast() )
+import java.util.LinkedList; //package importing
+public class LinkedList_program {
+    public static  void main(String[] args) {
+        LinkedList<String>Country=new LinkedList<String>();
+        Country.add("India");
+        Country.add("Bhutan");
+        Country.add("Nepal");
+        Country.add("USA");
+        Country.add("UK");
+        Country.add("Australia");
+        System.out.println(Country.getFirst());
+        System.out.println(Country.getLast());
+    }
+}
+
+
+JAVA  HASHMAP
+
+Create HashMap
+Add-modify-items
+Loop read HashMap
+
+Create a HashMap
+Follow key value pair
+String key - integer value
+Integer key - String value 
+It may be anything 
+ Library -import java.util.HashMap;
+
+HashMap_program.java
+
+import java.util.HashMap;
+public class HashMap_program {
+    //create HashMap object called capitalCities
+    HashMap<String,String>capitalCities= new HashMap<String,String>();
+}
+ 
+
+Add Values in HaspMap
+put() method is used for this
+import java.util.HashMap;
+public class HashMap_program {
+    public static void main(String[] args) {
+        //create HashMap object called capitalCities
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //adding keys and values (Countries,City)
+        capitalCities.put("England","London");
+        capitalCities.put("Germany","Berlin");
+        capitalCities.put("India","Delhi");
+        capitalCities.put("USA","NY");
+        System.out.println(capitalCities);
+    }
+}
+
+Access Items in HaspMap
+Using get() method
+import java.util.HashMap;
+public class HashMap_program {
+    public static void main(String[] args) {
+        //create HashMap object called capitalCities
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //adding keys and values (Countries,City)
+        capitalCities.put("England","London");
+        capitalCities.put("Germany","Berlin");
+        capitalCities.put("India","Delhi");
+        capitalCities.put("USA","NY");
+        System.out.println(capitalCities.get("England"));
+    }
+}
+
+
+Remove Items in HaspMap
+Using remove() method
+
+import java.util.HashMap;
+public class HashMap_program {
+    public static void main(String[] args) {
+        //create HashMap object called capitalCities
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //adding keys and values (Countries,City)
+        capitalCities.put("England","London");
+        capitalCities.put("Germany","Berlin");
+        capitalCities.put("India","Delhi");
+        capitalCities.put("USA","NY");
+        capitalCities.remove("India");
+        System.out.println(capitalCities);
+    }
+}
+
+Find Size of HaspMap
+import java.util.HashMap;
+public class HashMap_program {
+    public static void main(String[] args) {
+        //create HashMap object called capitalCities
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //adding keys and values (Countries,City)
+        capitalCities.put("England","London");
+        capitalCities.put("Germany","Berlin");
+        capitalCities.put("India","Delhi");
+        capitalCities.put("USA","NY");
+        System.out.println(capitalCities.size());
+    }
+}
+
+Loop through a HashMap
+//keyset() --- getting only keys
+//values() --- to get only values
+
+
+import java.util.HashMap;
+public class HashMap_program {
+    public static void main(String[] args) {
+        //create HashMap object called capitalCities
+        HashMap<String, String> capitalCities = new HashMap<String, String>();
+        //adding keys and values (Countries,City)
+        capitalCities.put("England","London");
+        capitalCities.put("Germany","Berlin");
+        capitalCities.put("India","Delhi");
+        capitalCities.put("USA","NY");
+        //keyset() --- getting only keys
+        //values() --- to get only values
+
+        //loop through the keys
+        for(String i:capitalCities.keySet()){
+            System.out.println(i);
+        }
+
+        //loop through the values
+        for(String i:capitalCities.values()){
+            System.out.println(i);
+        }
+        //to get keys and value loop through
+        for(String i:capitalCities.keySet()){
+            System.out.println("key " + i +", value "+capitalCities.get(i) );
+        }
+    }
+}
+
+
+Assessment Test2
+
+Q Using HashMap Data structure to create a simple program that store and retrieve student names and their corresponding scores.
+
+Support:use reference libraries for the following
+
+Import java.util.Hashmap;
+Import java.util.Map;
+Import java.util.Scanner;
+
+
+Code
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Assessment_2 {
+    public static void main(String[] args) {
+        Map<String, Integer> studentScores = new HashMap<>();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Choose an option:");
+            System.out.println("1. Add Student");
+            System.out.println("2. Get Student Score");
+            System.out.println("3. Exit");
+
+            int choice = 0;
+            try {
+                choice = sc.nextInt();
+                sc.nextLine(); // Consume newline
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                sc.nextLine(); // Consume invalid input
+                continue;
+            }
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter the Student's name:");
+                    String name = sc.nextLine();
+                    System.out.println("Enter Student score:");
+                    int score = sc.nextInt();
+                    studentScores.put(name, score);
+                    break;
+
+                case 2:
+                    System.out.println("Enter the student's name to get score:");
+                    String studentName = sc.nextLine();
+                    Integer studentScore = studentScores.get(studentName);
+                    if (studentScore != null) {
+                        System.out.println("Score for " + studentName + " is: " + studentScore);
+                    } else {
+                        System.out.println("Student does not exist.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Exiting...");
+                    sc.close(); // Closing scanner before exiting
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
+
+Java HashSet
+
+Create HashSet
+Add-Modify-items
+Remove HashSet
+Loop-HashSet
+Help to represent unique data 
+
+Create a HashSet
+HashSet_program .java
+Library
+import java.util.HashSet;
+
+Code
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>Sports=new HashSet<String>();
+     
+    }
+}
+
+Add items in HashSet
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>sports=new HashSet<String>();
+     sports.add("Football");
+     sports.add("Tennis");
+     sports.add("Cricket");
+     sports.add("Cricket");
+     sports.add("Badminton");
+     System.out.println(sports);
+    }
+}
+
+Check items 
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>sports=new HashSet<String>();
+     sports.add("Football");
+     sports.add("Tennis");
+     sports.add("Cricket");
+     sports.add("Cricket");
+     sports.add("Badminton");
+     System.out.println(sports.contains("Tennis"));
+     System.out.println(sports.contains("Sleep"));
+    }
+
+Remove an item
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>sports=new HashSet<String>();
+     sports.add("Football");
+     sports.add("Tennis");
+     sports.add("Cricket");
+     sports.add("Cricket");
+     sports.add("Badminton");
+     sports.remove("Tennis");
+     System.out.println(sports);
+    }
+}
+
+//to clear  all data
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>sports=new HashSet<String>();
+     sports.add("Football");
+     sports.add("Tennis");
+     sports.add("Cricket");
+     sports.add("Cricket");
+     sports.add("Badminton");
+     sports.clear();
+     System.out.println(sports);
+    }
+}
+ 
+To find size of hashSet
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+     HashSet<String>sports=new HashSet<String>();
+     sports.add("Football");
+     sports.add("Tennis");
+     sports.add("Cricket");
+     sports.add("Cricket");
+     sports.add("Badminton");
+     System.out.println(sports.size());
+    }
+}
+
+
+Loop through hashSet
+import java.util.HashSet;
+public class HashSet_program {
+    public static  void main(String [] args){
+        //creating hashSet
+      HashSet<String>sports=new HashSet<String>();
+      sports.add("Football");
+      sports.add("Tennis");
+      sports.add("Cricket");
+      sports.add("Cricket");
+      sports.add("Badminton");
+      for(String i:sports){
+      System.out.println(i);
+     }
+    }
+}
+
+Java Collections
+Create an iterator 
+Loop a collection - how to read item wise
+Remove Collection items
+An iterator is an object help to loop through 
+Its a looping 
+One by one accessing for the purpose
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Collections_program {
+
+    //iterator
+    //make a collection
+    public static void main (String[]args){
+    ArrayList<String>fruits=new ArrayList<String>();
+    fruits.add("Apple");
+     fruits.add("Mango");
+      fruits.add("Kiwi");
+       fruits.add("Grapes");
+        fruits.add("Orange");
+
+        //getting an iterator method
+        Iterator<String>it=fruits.iterator();
+        //print the first items
+        System.out.println(it.next());
+    }
+}
+
+Loop through a collection(iterator)
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Collections_program {
+
+    //iterator
+    //make a collection
+    public static void main (String[]args){
+    ArrayList<String>fruits=new ArrayList<String>();
+    fruits.add("Apple");
+     fruits.add("Mango");
+      fruits.add("Kiwi");
+       fruits.add("Grapes");
+        fruits.add("Orange");
+
+        //getting an iterator method
+        Iterator<String>it=fruits.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
+}
+
+
+Removing items from collection
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Collections_program {
+
+    //iterator
+    //make a collection
+    public static void main (String[]args){
+    ArrayList<Integer>number=new ArrayList<Integer>();
+    number.add(300);
+     number.add(200);
+      number.add(90);
+       number.add(70);
+        number.add(250);
+
+        //getting an iterator method
+        Iterator<Integer>item=number.iterator();
+        while(item.hasNext()){
+            Integer i=item.next();
+            if(i<100){
+                item.remove();
+            }
+        }
+        System.out.println(number);
+    }
+}
+
+JAVA FILE HANDLING
+File Handling
+Create a file
+Read a file
+Delete a file
+
+File Handling
+Built in method available in java for streaming 
+Import  a library
+import java.io.File;
+
+File_Handling.java
+
+import java.io.File; //import the File class library
+public class File_Handling {
+    public static void main(String[] args){
+        //New file object creation
+        File myObj =new File("myfile.txt");
+    }
+}
+
+Create a  new file
+import java.io.File; //import the File class library
+import java.io.IOException;
+public class File_Handling {
+    public static void main(String[] args){
+        //New file object creation
+        //filepath  "C:\\Users\\MyName(foder name)\\filename.txt
+        // path for mac, linux --  /Users/name/filename.txt
+        try {
+                File myObj = new File("myfile.txt");
+                if(myObj.createNewFile()) {
+                System.out.println("File created " + myObj.getName());
+            }
+            else{
+                System.out.println("File already exist. ");
+            }
+        }
+        catch(IOException e){
+            System.out.println("An error Occourred. ");
+            e.printStackTrace();
+        }
+    }
+}
+
+
+Writing a file
+import java.io.File; //import the File class library
+import java.io.IOException; // Handling Exceptions
+import java.io.FileWriter; // for  writing a file
+public class File_Handling {
+    public static void main(String[] args){
+        //myfile.txt
+        try{
+            //writing a file
+            FileWriter myWriter =new FileWriter("myfile.txt");
+            myWriter.write("File in java adding Financial text super easy.hurrah!");
+            myWriter.close();
+            System.out.println("Successfully written on file....");
+        }
+        catch (IOException e){
+            System.out.println("Error occured....");
+            e.printStackTrace();
+        }
+
+    }
+}
+
+
+Reading a file
+import java.io.File; //import the File class library
+import java.util.Scanner; //import this class to read a text file
+import java.io.FileNotFoundException; //to handle erros
+public class File_Handling {
+    public static void main(String[] args){
+        //myfile.txt
+        try{
+          File myObj =new File("myfile.txt");
+          Scanner myReader =new Scanner(myObj);
+          while(myReader.hasNextLine()){
+              String data =myReader.nextLine();
+              System.out.println(data);
+          }
+          myReader.close();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Error Raised....");
+            e.printStackTrace();
+        }
+
+    }
+}
+
+
+Getting a  file Information 
+import java.io.File; //import the File class library
+public class File_Handling {
+    public static void main(String[] args){
+        //myfile.txt
+       File myObj=new File("myfile.txt");
+       if(myObj.exists()){
+           System.out.println("File Name: "+myObj.getName());
+           System.out.println("Absolute Path: "+myObj.getAbsolutePath());
+           System.out.println("Writable : "+myObj.canWrite());
+           System.out.println("Readable : "+myObj.canRead());
+           System.out.println("File size in bytes  : "+myObj.length());
+       }
+       else{
+           System.out.println("file not found");
+       }
+    }
+}
+
+Delete a file 
+import java.io.File; //import the File class library
+public class File_Handling {
+    public static void main(String[] args){
+        //myfile.txt
+       File myObj=new File("myfile.txt");
+       if(myObj.delete()){
+           System.out.println("File deleted Successfully "+myObj.getName());
+       }
+       else{
+           System.out.println("File Not Found... or set correct path");
+       }
+    }
+}
+
+Delete a Directory/folder
+import java.io.File; //import the File class library
+public class File_Handling {
+    public static void main(String[] args){
+        //myfile.txt
+       File myObj=new File("/Users/salonisharma/Documents/myproject");
+       if(myObj.delete()){
+           System.out.println("Directory deleted Successfully "+myObj.getName());
+       }
+       else{
+           System.out.println("Directory Not Found... or set correct path");
+       }
+    }
+}
+
+
+Exception 
+An exception is an unexpected or erroneous event that occur during the execution of a program.
+Purpose :
+“Exception are used to handle errors gracefully preventing program crashes and providing useful feedback to developers. “
+
+Exception  Types
+Types: “There are two main types of exceptions :Checked and unchecked
+1) Checked Exceptions: are typically known at compile time and must be explicitly handled by the programmer.
+2)Unchecked Exceptions: also known as runtime exceptions, are not explicitly
+ Checked at compile time and can occur at runtime.
+
+Handling Exception
+. Handling :”To handle exceptions, use try-catch blocks.”
+. Try Block : “Enclose the code that might generate an exception.”
+. Catch Block : “Contains the code to handle the exception, specifying the type of exception to catch.”
+. Example: “try {riskyCode();}
+  catch(ExceptionType e){
+handleException(e)}”
+
+Best Practices 
+.follow these best practices. 
+- Be Specific:”catch Specific exceptions to handle them appropriatly”
+- Logging :”Log exception details for debugging and auditing.”
+- Graceful Degradation:” Provide graceful degradation and user friendly error message.”
+- Avoid empty catches :”Avoid empty catch blocks as they can hide issues”.
+- Finally Block:”Use the ‘finally’ block to ensure necessary cleanup, even if an exception occurs.”
+
+Try and Catch block coding
+
+public class Error_Handling {
+    //try - catch block of coding
+    public static void main(String[] args){
+        //code will be written here
+        try{
+            int[] myNum={1,2,3,4,5};
+            System.out.println(myNum[10]); //error wrong index number give
+        }
+        catch (Exception e){
+            System.out.println("something went wrong");
+        }
+    }
+}
+
+Finally Block Statement
+public class Error_Handling {
+    //try - catch block of coding
+    public static void main(String[] args){
+        //code will be written here
+        try{
+            int[] myNum={1,2,3,4,5};
+            System.out.println(myNum[10]); //error wrong index number give
+        }
+        catch (Exception e){
+            System.out.println("something went wrong");
+        }
+        finally {
+            System.out.println("Try- catch is finished and clean  and closing db is closed");
+        }
+    }
+}
+
+throw keyword
+import java.lang.IllegalArgumentException;
+public class Error_Handling {
+    static void checkAge(int age){
+        if(age<18){
+            throw new ArithmeticException("Access denied:you must 18 years old to process.");
+        }
+        else{
+            System.out.println("Access Granted.");
+        }
+    }
+    //try - catch block of coding
+
+    public static void main(String[] args){
+       try{
+           int age=-5;
+           if(age<0){
+               throw new IllegalArgumentException("Age cannot be negative");
+           }
+           System.out.println("Your age is "+age);
+       }
+       catch (IllegalArgumentException e){
+           System.out.println("Exception occured."+e.getMessage());
+       }
+    }
+}
+
+Java Regular Expressions - RegEx
+
+What is a Regular Expression
+A powerful tool for Pattern Matching
+A Regular Expressions - RegEx is a sequence of character define a search pattern.
+Purpose - Regular Expression are used for pattern matching, searching and manipulating text.
+
+Basic Syntax 
+Regular Expression consists of ordinary characters and special  meta characters.
+ 
+.Examples
+Ordinary character - letter, number and most punctuations are ordinary character (e.g., ‘abc’, ‘123’).”
+MetaCharacters - “they have special meaning (e.g.  ‘.’,  ’*’,  ’|’).”
+
+Common Use Cases
+User Cases: regular expression are used in various  scenarios : search - find pattern in text (eg - email, phone number, address)
+Replace : Replace specific text with other content
+Validation : Validate user input (e.g. password strength)
+Parsing :”Extract structured data from unstructered
+
+Advance Concept and tools 
+Advanced : RegEx can get complex with advanced features: Quantifier :specify the no of times pattern should repeat (eg *,+)
+RegEx Tools : Use online RegEx tester and libraries in programming language to work regular expressions.
+
+Matcher- Pattern program - Real world
+import java.util.regex.Matcher; //to match pattern
+import java.util.regex.Pattern; //to pattern
+public class RegEx_Pattern {
+    public static void main(String[] args){
+        Pattern pattern =Pattern.compile("JavaCoding",Pattern.CASE_INSENSITIVE);
+        Matcher matcher=pattern.matcher("Learn JavaCoding is fun");
+        boolean matchFound= matcher.find();
+        if(matchFound){
+            System.out.println("Match found");
+        }
+        else{
+            System.out.println("Match Not found");
+        }
+    }
+}
+
+Number validation program - Real world
+import java.util.regex.Matcher; //to matching data
+import java.util.regex.Pattern; //pattern to compile
+
+public class RegEx_Numberpattern {
+    public static void main(String[] args){
+        //sample array data creation
+        String[] strings={
+                "12345",
+                "987.65",
+                "70.9",
+                "abc",
+                "-987",
+                "abc6",
+                "+700",
+                "98755d"
+        };
+        //pattern creation
+        String numberPattern="[-+]?\\d+\\.?\\d+";
+        Pattern regex =Pattern.compile(numberPattern);
+
+        for(String str:strings){
+            Matcher matcher=regex.matcher(str);
+            if(matcher.matches()){
+                System.out.println(str +" is a valid number");
+            }
+            else {
+                System.out.println(str + " is a invalid number");
+            }
+        }
+    }
+}
+
+String validation program - Real world
+import java.util.regex.Matcher; //to matching data
+import java.util.regex.Pattern; //pattern to compile
+
+public class RegEx_Numberpattern {
+    public static void main(String[] args){
+        //sample array data creation
+        String[] strings={
+                "12345",
+                "Java Code",
+                "70.9",
+                "abc",
+                "reg_ex",
+                "abc6",
+                "Kiran_",
+                "Saloni",
+                "98755d"
+        };
+        //regular expression for number to validate
+        String pattern="^[a-zA-Z_][a-zA-Z0-9_]*$";
+        Pattern regex =Pattern.compile(pattern);
+
+        for(String str:strings){
+            Matcher matcher=regex.matcher(str);
+            if(matcher.matches()){
+                System.out.println(str +" is a valid string");
+            }
+            else {
+                System.out.println(str + " is a invalid string");
+            }
+        }
+    }
+}
+
+Java Multi Threading
+Help to operate by doing multiple things at the same time . Multiple action running same time In background u comfortably do it by using thread 
+2 method  by extending and by runnable
+
+By extends
+public class Main extends Thread {
+    public static void main(String[] args) {
+        Main thread = new Main();
+        thread.start();
+        System.out.println("Outside of thread");
+    }
+      public void run() {
+            System.out.println("This code is running in thread!");
+       }
+}
+
+Using Runnable interface program
+public class Main implements Runnable {
+    public static void main(String[] args) {
+        Main obj= new Main();
+        Thread thread =new Thread(obj);
+        thread.start();
+        System.out.println("Outside of thread");
+    }
+      public void run() {
+            System.out.println("This code is running in thread!");
+       }
+}
+
+Java Concurrency 
+
+Concurrency  scenarios
+When threads are running at the same time other parts of program there is no way to know the order in which program run .when the threads are in main program reading an writing the same variable then values are unpredictable. When variable we are using and assigning same variable is going to be access different thread at same time. In such time result may be different.one instance may be increasing the value, other may be decreasing we don’t know . Such  is known Concurrency  scenarios.
+
+public class Concurrency_problems extends Thread{
+    public static  int amount=0;
+    public static void main(String[] args) {
+        Concurrency_problems thread=new Concurrency_problems();
+        thread.start();
+        System.out.println(amount);
+        amount++;
+        System.out.println(amount);
+    }
+    public void run(){
+        amount++;
+    }
+}
+ 
+Prevent Concurrency problems
+Using isAlive()
+public class Concurrency_problems extends Thread{
+    public static  int amount=0;
+    public static void main(String[] args) {
+        Concurrency_problems thread=new Concurrency_problems();
+        thread.start();
+        while(thread.isAlive()){
+            System.out.println("Waiting...");
+        }
+        System.out.println(amount);
+        amount++;
+        System.out.println(amount);
+    }
+    public void run(){
+        amount++;
+    }
+}
+
+Java Lambda Expressions
+
+They are similar to method but they do not need name and they can be implement in body of a method.
+ 
+Create  Lambda Expressions
+public class Lambda_Expression {
+    //Lambda
+    (parameters1,parameters2) ->{Block of code}
+}
+
+ Lambda Expressions -ArrayList
+import java.util.ArrayList; //array list implematation
+public class Lambda_Expression {
+    //Lambda
+    public static void main(String[] args) {
+      ArrayList<Integer>number=new ArrayList<Integer>();
+      number.add(45);
+      number.add(25);
+      number.add(35);
+      number.add(75);
+      number.add(85);
+      number.forEach((n)->{System.out.println(n);});
+    }
+}
+
+Lambda Expressions -Consumer interface
+import java.util.ArrayList; //array list implematation
+import java.util.function.Consumer;
+public class Lambda_Expression {
+    //Lambda
+    public static void main(String[] args) {
+      ArrayList<Integer>number=new ArrayList<Integer>();
+      number.add(45);
+      number.add(25);
+      number.add(35);
+      number.add(75);
+      number.add(85);
+      Consumer<Integer>myMethod=(n)->{System.out.println(n);};
+      number.forEach(myMethod);
+    }
+}
+
+Lambda Expressions - Method
+interface StrFun{
+    String run(String str);
+}
+public class Lambda_Method {
+    public static void main(String[] args) {
+    StrFun exclaim =(s) -> s+ "!!";
+    StrFun query =(s) -> s+"??";
+    ask_query("Hello",exclaim);
+    ask_query("Hello",query);
+    }
+    public static  void ask_query(String str,StrFun format){
+      String result=format.run(str);
+      System.out.println(result);
+    }
+}
+
+
+
+Java Project :User Authentication System 
+
+Project Overview
+User Class Creation
+Creating Method
+Authentication Code
+
+User Class and Method Creation
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+class User{
+    private String username;
+    private  String password;
+
+    public User(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
+
+    public String getUsername(){
+        return  username;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+public class AuthentiationSystem {
+
+}
+
+User Choice options
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+class User{
+    private String username;
+    private  String password;
+
+    public User(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
+
+    public String getUsername(){
+        return  username;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+public class AuthentiationSystem {
+    public static void main(String[] args) {
+        AuthentiationSystem authSystem =new AuthentiationSystem();
+        Scanner scanner=new Scanner(System.in);
+        boolean loggedIn= false;
+        while(!loggedIn){
+            System.out.println("Choose an Option");
+            System.out.println("1.Register");
+            System.out.println("2.Login");
+            System.out.println("3.Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+        }
+    }
+
+}
+
+
+User Registration Method 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+class User{
+    private String username;
+    private  String password;
+
+    public User(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
+
+    public String getUsername(){
+        return  username;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+public class AuthentiationSystem {
+    private LinkedList<User>userList;
+    public AuthentiationSystem(){
+        userList =new LinkedList<>();
+    }
+
+    public void register(String username, String password){
+        User newUser = new User(username,password);
+        userList.add(newUser);
+        System.out.println("User Registered Successfully.");
+    }
+    public static void main(String[] args) {
+        AuthentiationSystem authSystem =new AuthentiationSystem();
+        Scanner scanner=new Scanner(System.in);
+        boolean loggedIn= false;
+        while(!loggedIn){
+            System.out.println("Choose an Option");
+            System.out.println("1.Register");
+            System.out.println("2.Login");
+            System.out.println("3.Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+        }
+    }
+
+}
+
+User Login Method
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+class User{
+    private String username;
+    private  String password;
+
+    public User(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
+
+    public String getUsername(){
+        return  username;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+public class AuthentiationSystem {
+    private LinkedList<User>userList;
+    public AuthentiationSystem(){
+        userList =new LinkedList<>();
+    }
+
+    public void register(String username, String password){
+        User newUser = new User(username,password);
+        userList.add(newUser);
+        System.out.println("User Registered Successfully.");
+    }
+    public boolean login(String username, String password){
+        for(User user:userList){
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        AuthentiationSystem authSystem =new AuthentiationSystem();
+        Scanner scanner=new Scanner(System.in);
+        boolean loggedIn= false;
+        while(!loggedIn){
+            System.out.println("Choose an Option");
+            System.out.println("1.Register");
+            System.out.println("2.Login");
+            System.out.println("3.Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+        }
+    }
+
+}
+
+Authentication System real time project 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+class User{
+    private String username;
+    private  String password;
+
+    public User(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
+
+    public String getUsername(){
+        return  username;
+    }
+    public String getPassword(){
+        return password;
+    }
+}
+public class AuthentiationSystem {
+    private LinkedList<User>userList;
+    public AuthentiationSystem(){
+        userList =new LinkedList<>();
+    }
+
+    public void register(String username, String password){
+        User newUser = new User(username,password);
+        userList.add(newUser);
+        System.out.println("User Registered Successfully.");
+    }
+    public boolean login(String username, String password){
+        for(User user:userList){
+            if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        AuthentiationSystem authSystem =new AuthentiationSystem();
+        Scanner scanner=new Scanner(System.in);
+        boolean loggedIn= false;
+        while(!loggedIn){
+            System.out.println("Choose an Option");
+            System.out.println("1.Register");
+            System.out.println("2.Login");
+            System.out.println("3.Exit");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch(choice){
+                case 1:
+                    System.out.println("Enter a username: ");
+                    String regUsername =scanner.nextLine();
+                    System.out.println("Enter a password: ");
+                    String regPassword =scanner.nextLine();
+                   authSystem.register(regUsername,regPassword);
+                   break;
+                case 2:
+                    System.out.println("Enter your username: ");
+                    String loginUsername =scanner.nextLine();
+                    System.out.println("Enter your password: ");
+                    String loginPassword =scanner.nextLine();
+
+                    if(authSystem.login(loginUsername,loginPassword)){
+                        System.out.println("Login Successfully.. ");
+                        loggedIn=true;
+                    }
+                    else{
+                        System.out.println("Login failed.. ");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    loggedIn=true;
+                    break;
+                default:
+                    System.out.println("Invalid Choice. try again");
+            }
+        }
+        scanner.close();
+    }
+
+}
+
+Assignment -1
+Implement a Java method that calculates the factorial of a given number.
+
+
+public class Factorial {
+public static void main(String[] args) {
+int number = 3;
+int factorial = calculate_factorial(number);
+System.out.println("Factorial of " + number + " is equal to = "+ factorial);
+}
+public static int calculate_factorial(int num){
+if(num == 0 || num == 1){
+return 1;
+}
+else{
+return num * calculate_factorial(num-1);
+}
+}
+}
+
+
+Assignment -2
+Develop a Java program that demonstrates the usage of ArrayList to store and manipulate a list of student names.
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Assignment_2 {
+
+    public static void main(String[] args) {
+        ArrayList<String> student = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter student names:");
+        String stu_name = scanner.nextLine();
+        while (!stu_name.equals("yes")) {
+            student.add(stu_name);
+            stu_name = scanner.nextLine();
+        }
+
+
+        System.out.println("List of students:");
+        for (String stu : student) {
+            System.out.println(stu);
+        }
+
+        System.out.println("Enter a student name you want to remove:");
+        String nameToRemove = scanner.nextLine();
+        if (student.contains(nameToRemove)) {
+            student.remove(nameToRemove);
+            System.out.println(nameToRemove + " removed from the list.");
+        } else {
+            System.out.println("Student not found in the list.Please enter correct name");
+        }
+
+        System.out.println("Updated list of students:");
+        for (String s : student) {
+            System.out.println(s);
+        }
+        scanner.close();
+    }
+}
+
+Assignment -3
+Create a Java application that reads a text file, counts the occurrences of each word and displays the frequency of each word.
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Assignment_3{
+
+    public static void main(String[] args) {
+        String fileName = "/Users/salonisharma/Documents/myproject/src/input.txt";
+
+        try {
+            Map<String, Integer> word_frequency = countWordFrequency(fileName);
+            displayWordFrequency(word_frequency);
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("File not found: ");
+        }
+    }
+
+    public static Map<String, Integer> countWordFrequency(String fileName) throws FileNotFoundException {
+        Map<String, Integer> wordFrequencyMap = new HashMap<String,Integer>();
+        try (Scanner scanner = new Scanner(new File(fileName))) {
+            while (scanner.hasNext()) {
+                String word = scanner.next();
+                if (!word.isEmpty()) {
+                    wordFrequencyMap.put(word, wordFrequencyMap.getOrDefault(word, 0) + 1);
+                }
+            }
+        }
+        return wordFrequencyMap;
+    }
+
+    public static void displayWordFrequency(Map<String, Integer> wordFrequencyMap) {
+        System.out.println("Freequency of Each Word is :");
+        for (Map.Entry<String, Integer> entry : wordFrequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
+
+
